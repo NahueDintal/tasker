@@ -19,8 +19,6 @@ En un cambio de paradigma para mantenerlo fiel al objetivo, decidi copiar el con
 Tasker init, por repositorio, por ende si trabajo en un proyecto, tengo la lista de tareas del mismo, con un
 registro o vitacora de las tareas de cada proyecto.
 
-Por el momento en la semana de uso es simplemente lo que necesitaba.
-
 Tasker - Gestor de tareas por proyecto.
 
 USO:
