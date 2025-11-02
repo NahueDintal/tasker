@@ -41,6 +41,9 @@ namespace Tasker
           }
           EliminarTarea(args[1], archivoTareas); break;
         case "status": MostrarEstado(directorioTareas, archivoTareas); break;
+        case "ok":
+        case "lista": 
+
         default:
           Console.WriteLine($"Comando no reconocido: {comando}");
           ImprimirAyuda();
