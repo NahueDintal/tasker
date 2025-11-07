@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-
-namespace Tasker
+﻿namespace Tasker
 {
   class Program
   {
@@ -28,7 +23,7 @@ namespace Tasker
         case "add":
         case "a":
         case "new":
-            AgregarTarea(args, directorioTareas, archivoTareas); break;
+          AgregarTarea(args, directorioTareas, archivoTareas); break;
         case "list":
         case "ls": ListarTareas(archivoTareas); break;
         case "delete":
@@ -43,8 +38,8 @@ namespace Tasker
           EliminarTarea(args[1], archivoTareas); break;
         case "status": MostrarEstado(directorioTareas, archivoTareas); break;
         case "ok":
-        case "c": 
-        case "complete": 
+        case "c":
+        case "complete":
           if (args.Length < 2)
           {
             Console.WriteLine(MensjErrorId);
@@ -103,8 +98,8 @@ namespace Tasker
 
       if (string.IsNullOrEmpty(nombre))
       {
-          Console.WriteLine("Error: El nombre de la tarea es obligatorio (-n)");
-          return;
+        Console.WriteLine("Error: El nombre de la tarea es obligatorio (-n)");
+        return;
       }
 
       int siguienteId = ObtenerSiguienteId(archivoTareas);
@@ -118,9 +113,9 @@ namespace Tasker
     {
       if (!File.Exists(archivoTareas))
       {
-          Console.WriteLine($"No hay tareas guardadas en este proyecto ({Path.GetFileName(Environment.CurrentDirectory)})");
-          Console.WriteLine("Para empezar: tasker init && tasker add -n \"Mi primera tarea\"");
-          return;
+        Console.WriteLine($"No hay tareas guardadas en este proyecto ({Path.GetFileName(Environment.CurrentDirectory)})");
+        Console.WriteLine("Para empezar: tasker init && tasker add -n \"Mi primera tarea\"");
+        return;
       }
 
       Console.WriteLine($"Tareas del proyecto: {Path.GetFileName(Environment.CurrentDirectory)}");
@@ -137,7 +132,7 @@ namespace Tasker
           Console.WriteLine($"{indicadorEstado} {partes[0],3}. {partes[1]}");
           Console.WriteLine($"     Fecha: {partes[2]} | Tipo: {partes[4]} | Prioridad: {partes[5]} | Estado: {estado}");
           if (partes[3] != "Sin descripción")
-              Console.WriteLine($"     Descripción: {partes[3]}");
+            Console.WriteLine($"     Descripción: {partes[3]}");
           Console.WriteLine();
         }
       }
@@ -147,8 +142,8 @@ namespace Tasker
     {
       if (!File.Exists(archivoTareas))
       {
-          Console.WriteLine($"No hay tareas guardadas en este proyecto ({Path.GetFileName(Environment.CurrentDirectory)})");
-          return;
+        Console.WriteLine($"No hay tareas guardadas en este proyecto ({Path.GetFileName(Environment.CurrentDirectory)})");
+        return;
       }
 
       var lineas = File.ReadAllLines(archivoTareas).ToList();
@@ -183,8 +178,8 @@ namespace Tasker
     {
       if (!File.Exists(archivoTareas))
       {
-          Console.WriteLine($"No hay tareas guardadas en este proyecto ({Path.GetFileName(Environment.CurrentDirectory)})");
-          return;
+        Console.WriteLine($"No hay tareas guardadas en este proyecto ({Path.GetFileName(Environment.CurrentDirectory)})");
+        return;
       }
 
       var lineas = File.ReadAllLines(archivoTareas).ToList();
@@ -212,8 +207,8 @@ namespace Tasker
 
       if (!encontrada)
       {
-          Console.WriteLine($"No se encontró ninguna tarea con ID: {idACompletar}");
-          return;
+        Console.WriteLine($"No se encontró ninguna tarea con ID: {idACompletar}");
+        return;
       }
 
       File.WriteAllLines(archivoTareas, nuevasLineas);
@@ -225,13 +220,13 @@ namespace Tasker
       bool estaInicializado = Directory.Exists(directorioTareas);
       Console.WriteLine($"Proyecto: {Path.GetFileName(Environment.CurrentDirectory)}");
       Console.WriteLine($"Tasker inicializado: {(estaInicializado ? "SÍ" : "NO")}");
-      
+
       if (estaInicializado && File.Exists(archivoTareas))
       {
         var lineas = File.ReadAllLines(archivoTareas);
         int tareasTotales = lineas.Length;
         int completadas = 0;
-        foreach ( string linea in lineas )
+        foreach (string linea in lineas)
         {
           // CORRECCIÓN: Usar 'linea' en lugar de 'lineas'
           string[] partes = linea.Split('|');
@@ -240,21 +235,25 @@ namespace Tasker
           if (estado == "completada") completadas++;
         }
         int pendientes = tareasTotales - completadas;
-        
+
         Console.WriteLine($"Tareas totales: {tareasTotales}");
         Console.WriteLine($" Pendientes: {pendientes}");
         Console.WriteLine($" Completadas: {completadas}");
+<<<<<<< HEAD
 
         // Mostrar porcentaje de completitud
         if (tareasTotales > 0)
         {
-            double porcentaje = (double)completadas / tareasTotales * 100;
-            Console.WriteLine($" Progreso: {porcentaje:F1}%");
+          double porcentaje = (double)completadas / tareasTotales * 100;
+          Console.WriteLine($" Progreso: {porcentaje:F1}%");
         }
-    }
+      }
+=======
+      }
+>>>>>>> 8b65eb3 (indentación corregida)
       else if (estaInicializado)
       {
-          Console.WriteLine("Tareas: 0 (usa 'tasker add' para agregar la primera)");
+        Console.WriteLine("Tareas: 0 (usa 'tasker add' para agregar la primera)");
       }
     }
 
@@ -268,7 +267,7 @@ namespace Tasker
         string[] partes = linea.Split('|');
         if (partes.Length > 0 && int.TryParse(partes[0], out int id))
         {
-            if (id > idMaximo) idMaximo = id;
+          if (id > idMaximo) idMaximo = id;
         }
       }
 
