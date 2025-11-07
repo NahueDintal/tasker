@@ -4,4 +4,8 @@
 =======
 1|probar el proyecto todos los días|Sin fecha|Sin descripción|Sin tipo|media
 2|probar una versión de tasker global|Sin fecha|Sin descripción|Sin tipo|media
+<<<<<<< HEAD
 >>>>>>> 8b65eb3 (indentación corregida)
+=======
+3|agregado tasker global|Sin fecha|la idea sería que luego de un tasker init, se reporte a algún lugar, y así poder ver las tareas por semana o en el mes que faltan, o se cumplieron|Sin tipo|media
+>>>>>>> eafac29 (más tareas)
