@@ -228,10 +228,8 @@
         int completadas = 0;
         foreach (string linea in lineas)
         {
-          // CORRECCIÓN: Usar 'linea' en lugar de 'lineas'
           string[] partes = linea.Split('|');
           string estado = partes.Length >= 7 ? partes[6] : "pendiente";
-          // CORRECCIÓN: Usar 'completadas' en lugar de 'completada'
           if (estado == "completada") completadas++;
         }
         int pendientes = tareasTotales - completadas;
@@ -239,7 +237,6 @@
         Console.WriteLine($"Tareas totales: {tareasTotales}");
         Console.WriteLine($" Pendientes: {pendientes}");
         Console.WriteLine($" Completadas: {completadas}");
-<<<<<<< HEAD
 
         // Mostrar porcentaje de completitud
         if (tareasTotales > 0)
@@ -248,9 +245,6 @@
           Console.WriteLine($" Progreso: {porcentaje:F1}%");
         }
       }
-=======
-      }
->>>>>>> 8b65eb3 (indentación corregida)
       else if (estaInicializado)
       {
         Console.WriteLine("Tareas: 0 (usa 'tasker add' para agregar la primera)");
